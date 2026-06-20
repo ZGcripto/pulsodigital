@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pulso Digital RD — Contenido que vende</title>
+<meta name="description" content="Agencia digital dominicana especializada en contenido para redes sociales, menús digitales y estrategia para negocios en República Dominicana.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --verde:#1D9E75;
+  --verde-dark:#0F6E56;
+  --verde-light:#E1F5EE;
+  --negro:#0d0d0d;
+  --gris:#6B7280;
+  --gris-claro:#F9FAFB;
+  --borde:#E5E7EB;
+}
+body{font-family:'Segoe UI',system-ui,sans-serif;color:var(--negro);background:#fff;line-height:1.6}
+a{color:inherit;text-decoration:none}
+
+nav{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 2rem;border-bottom:1px solid var(--borde);position:sticky;top:0;background:#fff;z-index:10}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-icon{width:36px;height:36px;background:var(--verde);border-radius:8px;display:flex;align-items:center;justify-content:center}
+.nav-icon svg{width:22px;height:22px}
+.nav-brand{font-size:15px;font-weight:600;letter-spacing:-.3px}
+.nav-brand span{color:var(--verde);font-weight:400}
+.nav-cta{background:var(--verde);color:#fff;font-size:13px;padding:8px 18px;border-radius:20px;font-weight:500;transition:background .15s;cursor:pointer}
+.nav-cta:hover{background:var(--verde-dark)}
+
+.hero{padding:5rem 2rem 4rem;text-align:center;max-width:680px;margin:0 auto}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:var(--verde-light);color:var(--verde-dark);font-size:12px;font-weight:500;padding:4px 12px;border-radius:20px;margin-bottom:1.5rem}
+.hero-badge::before{content:'';width:6px;height:6px;background:var(--verde);border-radius:50%}
+.hero h1{font-size:clamp(2rem,5vw,3rem);font-weight:700;line-height:1.15;letter-spacing:-.5px;margin-bottom:1.25rem;color:var(--negro)}
+.hero h1 em{font-style:normal;color:var(--verde)}
+.hero p{font-size:1.05rem;color:var(--gris);max-width:480px;margin:0 auto 2rem}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:var(--verde);color:#fff;padding:12px 28px;border-radius:24px;font-size:14px;font-weight:600;transition:background .15s;display:inline-flex;align-items:center;gap:8px}
+.btn-primary:hover{background:var(--verde-dark)}
+.btn-secondary{border:1.5px solid var(--borde);color:var(--negro);padding:12px 24px;border-radius:24px;font-size:14px;transition:border-color .15s;display:inline-flex;align-items:center}
+.btn-secondary:hover{border-color:var(--verde)}
+
+.stats{display:flex;justify-content:center;gap:3rem;padding:2.5rem 2rem;border-top:1px solid var(--borde);border-bottom:1px solid var(--borde);flex-wrap:wrap}
+.stat-item{text-align:center}
+.stat-num{font-size:1.75rem;font-weight:700;color:var(--verde);line-height:1}
+.stat-label{font-size:12px;color:var(--gris);margin-top:4px}
+
+.section{padding:4rem 2rem;max-width:900px;margin:0 auto}
+.section-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--verde);margin-bottom:.75rem}
+.section-title{font-size:1.6rem;font-weight:700;letter-spacing:-.3px;margin-bottom:.5rem}
+.section-sub{font-size:1rem;color:var(--gris);margin-bottom:2.5rem;max-width:520px}
+
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
+.srv-card{border:1.5px solid var(--borde);border-radius:14px;padding:1.5rem;transition:border-color .15s,box-shadow .15s}
+.srv-card:hover{border-color:var(--verde);box-shadow:0 4px 20px rgba(29,158,117,.08)}
+.srv-icon{width:40px;height:40px;background:var(--verde-light);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;font-size:18px}
+.srv-name{font-size:14px;font-weight:600;margin-bottom:.4rem}
+.srv-desc{font-size:13px;color:var(--gris);line-height:1.5;margin-bottom:.75rem}
+.srv-price{font-size:13px;font-weight:600;color:var(--verde)}
+
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+.plan{border:1.5px solid var(--borde);border-radius:16px;padding:1.75rem;position:relative}
+.plan.featured{border-color:var(--verde);background:var(--verde-light)}
+.plan-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--verde);color:#fff;font-size:11px;font-weight:600;padding:3px 14px;border-radius:20px;white-space:nowrap}
+.plan-name{font-size:13px;font-weight:600;color:var(--gris);margin-bottom:.5rem}
+.plan-price{font-size:2rem;font-weight:700;color:var(--negro);line-height:1;margin-bottom:.25rem}
+.plan-price span{font-size:14px;font-weight:400;color:var(--gris)}
+.plan-desc{font-size:13px;color:var(--gris);margin:.75rem 0 1.25rem;line-height:1.5}
+.plan-features{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.plan-features li{font-size:13px;color:var(--negro);display:flex;align-items:flex-start;gap:8px}
+.plan-features li::before{content:'✓';color:var(--verde);font-weight:700;flex-shrink:0;margin-top:1px}
+.plan-btn{display:block;text-align:center;margin-top:1.5rem;padding:10px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--verde);color:var(--verde);transition:all .15s}
+.plan-btn:hover,.plan.featured .plan-btn{background:var(--verde);color:#fff}
+
+.process{display:flex;flex-direction:column;gap:1px;border:1.5px solid var(--borde);border-radius:16px;overflow:hidden}
+.step{display:flex;gap:1.25rem;padding:1.25rem 1.5rem;background:#fff;align-items:flex-start}
+.step:not(:last-child){border-bottom:1px solid var(--borde)}
+.step-num{width:32px;height:32px;background:var(--verde);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0}
+.step-title{font-size:14px;font-weight:600;margin-bottom:3px}
+.step-desc{font-size:13px;color:var(--gris);line-height:1.5}
+
+.cta-section{background:var(--negro);color:#fff;text-align:center;padding:4rem 2rem;margin-top:2rem}
+.cta-section h2{font-size:1.75rem;font-weight:700;margin-bottom:.75rem}
+.cta-section p{color:rgba(255,255,255,.6);font-size:1rem;margin-bottom:2rem;max-width:440px;margin-left:auto;margin-right:auto}
+.btn-wa{background:var(--verde);color:#fff;padding:14px 32px;border-radius:28px;font-size:15px;font-weight:600;display:inline-flex;align-items:center;gap:10px;transition:background .15s;cursor:pointer;border:none;text-decoration:none}
+.btn-wa:hover{background:var(--verde-dark)}
+.btn-wa svg{width:20px;height:20px;flex-shrink:0}
+
+footer{text-align:center;padding:1.5rem 2rem;font-size:12px;color:var(--gris);border-top:1px solid var(--borde)}
+footer strong{color:var(--verde)}
+
+@media(max-width:600px){
+  nav{padding:1rem}
+  .hero{padding:3rem 1.25rem 2.5rem}
+  .stats{gap:1.5rem}
+  .section{padding:3rem 1.25rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <div class="nav-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="2,12 5,12 7,6 9,18 11,9 13,14 15,12 22,12"/>
+        <circle cx="22" cy="12" r="1.5" fill="#fff" stroke="none"/>
+      </svg>
+    </div>
+    <div class="nav-brand">Pulso <span>Digital</span></div>
+  </div>
+  <a class="nav-cta" href="https://wa.me/18097611027" target="_blank">Escríbenos</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-badge">Agencia digital dominicana</div>
+  <h1>Tu negocio merece <em>más clientes,</em> no más publicaciones</h1>
+  <p>Creamos contenido que vende, menús digitales profesionales y estrategia real para negocios en República Dominicana.</p>
+  <div class="hero-btns">
+    <a class="btn-primary" href="https://wa.me/18097611027?text=Hola%20Pulso%20Digital%2C%20me%20interesa%20saber%20m%C3%A1s%20sobre%20sus%20servicios" target="_blank">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.476 2 2 6.477 2 12c0 1.99.575 3.842 1.569 5.407L2.046 22l4.71-1.498A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.522 2 11.999 2z"/></svg>
+      Hablar por WhatsApp
+    </a>
+    <a class="btn-secondary" href="mailto:digitalpulsoai@gmail.com">Enviar correo</a>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">Sectores que atendemos</div></div>
+  <div class="stat-item"><div class="stat-num">48h</div><div class="stat-label">Tiempo de entrega</div></div>
+  <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">Enfoque en RD</div></div>
+  <div class="stat-item"><div class="stat-num">$0</div><div class="stat-label">Para ver la primera muestra</div></div>
+</div>
+
+<section class="section">
+  <div class="section-label">Servicios</div>
+  <div class="section-title">Lo que hacemos por tu negocio</div>
+  <div class="section-sub">Sin contratos largos. Sin lenguaje técnico. Solo resultados que se ven.</div>
+  <div class="services-grid">
+    <div class="srv-card">
+      <div class="srv-icon">✍️</div>
+      <div class="srv-name">Contenido para redes</div>
+      <div class="srv-desc">Textos que generan antojo, confianza y ganas de comprar. Tú pones la foto, nosotros ponemos las palabras.</div>
+      <div class="srv-price">Desde $35 / mes</div>
+    </div>
+    <div class="srv-card">
+      <div class="srv-icon">📋</div>
+      <div class="srv-name">Menú digital</div>
+      <div class="srv-desc">Menú profesional en PDF o imagen lista para WhatsApp e Instagram. Que tus clientes vean lo que vendes con claridad.</div>
+      <div class="srv-price">Desde $25</div>
+    </div>
+    <div class="srv-card">
+      <div class="srv-icon">🎯</div>
+      <div class="srv-name">Perfil profesional</div>
+      <div class="srv-desc">Bio, highlights y estructura de perfil optimizada. Primera impresión que convierte visitas en clientes.</div>
+      <div class="srv-price">Desde $20</div>
+    </div>
+    <div class="srv-card">
+      <div class="srv-icon">📦</div>
+      <div class="srv-name">Pack completo</div>
+      <div class="srv-desc">Contenido mensual + menú + perfil todo incluido. La solución completa para negocios que quieren crecer.</div>
+      <div class="srv-price">Desde $75 / mes</div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--gris-claro);padding:4rem 2rem">
+  <div style="max-width:900px;margin:0 auto">
+    <div class="section-label">Planes</div>
+    <div class="section-title">Elige lo que necesitas ahora</div>
+    <div class="section-sub">Puedes empezar pequeño y crecer. Sin compromisos de largo plazo.</div>
+    <div class="pricing-grid">
+      <div class="plan">
+        <div class="plan-name">Básico</div>
+        <div class="plan-price">$35 <span>/ mes</span></div>
+        <div class="plan-desc">Para negocios que quieren empezar a vender mejor en redes.</div>
+        <ul class="plan-features">
+          <li>12 textos para publicaciones</li>
+          <li>Adaptados a tu producto</li>
+          <li>Entrega en 48 horas</li>
+          <li>1 revisión incluida</li>
+        </ul>
+        <a class="plan-btn" href="https://wa.me/18097611027?text=Hola%2C%20me%20interesa%20el%20plan%20B%C3%A1sico%20de%20%2435" target="_blank">Empezar ahora</a>
+      </div>
+      <div class="plan featured">
+        <div class="plan-badge">Más popular</div>
+        <div class="plan-name">Profesional</div>
+        <div class="plan-price">$75 <span>/ mes</span></div>
+        <div class="plan-desc">Todo lo que necesita tu negocio para verse y vender profesional.</div>
+        <ul class="plan-features">
+          <li>20 textos para publicaciones</li>
+          <li>Menú digital incluido</li>
+          <li>Perfil optimizado</li>
+          <li>Soporte por WhatsApp</li>
+          <li>Entrega en 48 horas</li>
+        </ul>
+        <a class="plan-btn" href="https://wa.me/18097611027?text=Hola%2C%20me%20interesa%20el%20plan%20Profesional%20de%20%2475" target="_blank">Empezar ahora</a>
+      </div>
+      <div class="plan">
+        <div class="plan-name">A medida</div>
+        <div class="plan-price" style="font-size:1.4rem">Conversamos</div>
+        <div class="plan-desc">Para empresas medianas, clínicas, dealers o negocios con necesidades específicas.</div>
+        <ul class="plan-features">
+          <li>Estrategia personalizada</li>
+          <li>Múltiples redes sociales</li>
+          <li>Automatización de procesos</li>
+          <li>Precio según alcance</li>
+        </ul>
+        <a class="plan-btn" href="https://wa.me/18097611027?text=Hola%2C%20necesito%20un%20plan%20a%20medida%20para%20mi%20negocio" target="_blank">Conversemos</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-label">Proceso</div>
+  <div class="section-title">Así de sencillo funciona</div>
+  <div class="section-sub">Sin reuniones largas. Sin tecnicismos. Resultados en 48 horas.</div>
+  <div class="process">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div><div class="step-title">Nos escribes por WhatsApp</div><div class="step-desc">Cuéntanos qué tipo de negocio tienes y qué necesitas. Sin compromiso.</div></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div><div class="step-title">Te enviamos una muestra gratis</div><div class="step-desc">Creamos un ejemplo real con tu producto para que veas cómo quedaría.</div></div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div><div class="step-title">Confirmas y arrancamos</div><div class="step-desc">Si te gusta, empezamos. Entrega en menos de 48 horas.</div></div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div><div class="step-title">Tú publicas, nosotros seguimos creando</div><div class="step-desc">Cada mes recibes contenido fresco listo para usar. Sin complicaciones.</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-section">
+  <h2>¿Listo para que tu negocio venda más?</h2>
+  <p>Escríbenos ahora y te enviamos una muestra gratis en menos de 24 horas. Sin costo, sin compromiso.</p>
+  <a class="btn-wa" href="https://wa.me/18097611027?text=Hola%20Pulso%20Digital%2C%20quiero%20una%20muestra%20gratis%20para%20mi%20negocio" target="_blank">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.476 2 2 6.477 2 12c0 1.99.575 3.842 1.569 5.407L2.046 22l4.71-1.498A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.522 2 11.999 2z"/></svg>
+    Escribir por WhatsApp ahora
+  </a>
+</div>
+
+<footer>
+  © 2026 <strong>Pulso Digital RD</strong> · República Dominicana · <a href="mailto:digitalpulsoai@gmail.com" style="color:var(--verde)">digitalpulsoai@gmail.com</a>
+</footer>
+
+</body>
+</html>
