@@ -3,252 +3,314 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pulso Digital RD — Automatización con IA para tu negocio</title>
-<meta name="description" content="Automatizamos los DMs de tu Instagram para que consigas clientes mientras duermes. Agencia digital dominicana especializada en IA.">
+<title>Pulso Digital — Sistema PULSO para negocios en RD</title>
+<meta name="description" content="Página web profesional + automatización de redes + notas de voz con IA. El sistema completo para negocios en República Dominicana.">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--verde:#1D9E75;--verde-dark:#0F6E56;--verde-light:#E1F5EE;--negro:#0d0d0d;--gris:#6B7280;--gris-claro:#F9FAFB;--borde:#E5E7EB}
-body{font-family:'Segoe UI',system-ui,sans-serif;color:var(--negro);background:#fff;line-height:1.6}
+:root{--v:#1D9E75;--vd:#0F6E56;--vl:rgba(29,158,117,.12);--w:#fff;--bg:#070707;--card:#0e0e0e;--border:rgba(255,255,255,.07);--muted:rgba(255,255,255,.45)}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--w);line-height:1.6;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
+img{max-width:100%}
 
-nav{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 2rem;border-bottom:1px solid var(--borde);position:sticky;top:0;background:#fff;z-index:10}
-.nav-logo{display:flex;align-items:center;gap:10px}
-.nav-icon{width:36px;height:36px;background:var(--verde);border-radius:8px;display:flex;align-items:center;justify-content:center}
-.nav-icon svg{width:22px;height:22px}
-.nav-brand{font-size:15px;font-weight:600;letter-spacing:-.3px}
-.nav-brand span{color:var(--verde);font-weight:400}
-.nav-cta{background:var(--verde);color:#fff;font-size:13px;padding:8px 18px;border-radius:20px;font-weight:500;transition:background .15s}
-.nav-cta:hover{background:var(--verde-dark)}
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 2.5rem;background:rgba(7,7,7,.8);backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-icon{width:32px;height:32px;background:var(--v);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.logo-icon svg{width:18px;height:18px}
+.logo-name{font-size:15px;font-weight:600;letter-spacing:-.2px}
+.logo-name span{color:var(--v);font-weight:400}
+.nav-links{display:flex;gap:2rem}
+.nav-links a{font-size:13px;color:var(--muted);transition:color .2s}
+.nav-links a:hover{color:var(--w)}
+.nav-btn{background:var(--v);color:var(--w);font-size:13px;font-weight:500;padding:8px 20px;border-radius:20px;border:none;cursor:pointer;transition:background .2s}
+.nav-btn:hover{background:var(--vd)}
 
-.hero{padding:5rem 2rem 4rem;text-align:center;max-width:680px;margin:0 auto}
-.hero-badge{display:inline-flex;align-items:center;gap:6px;background:var(--verde-light);color:var(--verde-dark);font-size:12px;font-weight:500;padding:4px 12px;border-radius:20px;margin-bottom:1.5rem}
-.hero-badge::before{content:'';width:6px;height:6px;background:var(--verde);border-radius:50%}
-.hero h1{font-size:clamp(2rem,5vw,3rem);font-weight:700;line-height:1.15;letter-spacing:-.5px;margin-bottom:1.25rem}
-.hero h1 em{font-style:normal;color:var(--verde)}
-.hero p{font-size:1.05rem;color:var(--gris);max-width:480px;margin:0 auto 2rem}
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:9rem 2rem 5rem;position:relative;overflow:hidden}
+.hero-glow{position:absolute;top:-20%;left:50%;transform:translateX(-50%);width:900px;height:600px;background:radial-gradient(ellipse,rgba(29,158,117,.18) 0%,transparent 70%);pointer-events:none}
+.hero-dots{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.04) 1px,transparent 1px);background-size:32px 32px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black,transparent);pointer-events:none}
+.hero-inner{position:relative;max-width:800px}
+.hero-pill{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(29,158,117,.35);background:rgba(29,158,117,.08);color:#5EFFC4;font-size:12px;font-weight:500;padding:6px 16px;border-radius:20px;margin-bottom:2rem}
+.hero-pill-dot{width:6px;height:6px;background:var(--v);border-radius:50%;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+h1{font-size:clamp(2.75rem,6vw,4.25rem);font-weight:700;line-height:1.08;letter-spacing:-.5px;margin-bottom:1.5rem}
+h1 em{font-style:normal;background:linear-gradient(130deg,#1D9E75 30%,#5EFFC4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:1.1rem;color:var(--muted);max-width:500px;margin:0 auto 2.5rem;line-height:1.75}
 .hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.btn-primary{background:var(--verde);color:#fff;padding:12px 28px;border-radius:24px;font-size:14px;font-weight:600;transition:background .15s;display:inline-flex;align-items:center;gap:8px}
-.btn-primary:hover{background:var(--verde-dark)}
-.btn-secondary{border:1.5px solid var(--borde);color:var(--negro);padding:12px 24px;border-radius:24px;font-size:14px;transition:border-color .15s;display:inline-flex;align-items:center}
-.btn-secondary:hover{border-color:var(--verde)}
+.btn-main{display:inline-flex;align-items:center;gap:8px;background:var(--v);color:var(--w);font-size:15px;font-weight:600;padding:14px 32px;border-radius:28px;border:none;cursor:pointer;transition:all .25s}
+.btn-main:hover{background:var(--vd);transform:translateY(-2px);box-shadow:0 10px 35px rgba(29,158,117,.3)}
+.btn-ghost{display:inline-flex;align-items:center;gap:6px;color:var(--muted);font-size:15px;padding:14px 24px;border-radius:28px;border:1px solid var(--border);transition:all .2s}
+.btn-ghost:hover{color:var(--w);border-color:rgba(255,255,255,.2)}
 
-.stats{display:flex;justify-content:center;gap:3rem;padding:2.5rem 2rem;border-top:1px solid var(--borde);border-bottom:1px solid var(--borde);flex-wrap:wrap}
-.stat-item{text-align:center}
-.stat-num{font-size:1.75rem;font-weight:700;color:var(--verde);line-height:1}
-.stat-label{font-size:12px;color:var(--gris);margin-top:4px}
+/* ── STATS BAR ── */
+.stats{display:flex;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.stat{flex:1;padding:2rem 1.5rem;text-align:center;border-right:1px solid var(--border)}
+.stat:last-child{border-right:none}
+.stat-n{font-size:1.75rem;font-weight:700;color:var(--v);line-height:1}
+.stat-l{font-size:12px;color:var(--muted);margin-top:5px}
 
-.section{padding:4rem 2rem;max-width:960px;margin:0 auto}
-.section-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--verde);margin-bottom:.75rem}
-.section-title{font-size:1.6rem;font-weight:700;letter-spacing:-.3px;margin-bottom:.5rem}
-.section-sub{font-size:1rem;color:var(--gris);margin-bottom:2.5rem;max-width:520px}
+/* ── SECTIONS COMMON ── */
+.sec{padding:6rem 2rem}
+.sec-inner{max-width:1100px;margin:0 auto}
+.sec-tag{display:inline-block;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--v);margin-bottom:.75rem}
+.sec-h{font-size:clamp(1.75rem,4vw,2.75rem);font-weight:700;letter-spacing:-.3px;line-height:1.15;margin-bottom:.75rem}
+.sec-sub{font-size:1rem;color:var(--muted);max-width:500px;line-height:1.7;margin-bottom:3rem}
 
-/* AUTOMATIZACIÓN HERO */
-.auto-hero{background:linear-gradient(135deg,#0d1117,#1a2332);color:#fff;padding:4rem 2rem;text-align:center}
-.auto-hero h2{font-size:clamp(1.5rem,4vw,2.25rem);font-weight:700;margin-bottom:1rem;line-height:1.2}
-.auto-hero h2 em{font-style:normal;color:#1D9E75}
-.auto-hero p{font-size:1rem;color:rgba(255,255,255,.7);max-width:520px;margin:0 auto 2rem}
-.auto-flow{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:2rem}
-.flow-step{background:rgba(255,255,255,.08);border-radius:20px;padding:8px 16px;font-size:12px;color:#fff;display:flex;align-items:center;gap:6px}
-.flow-step i{color:#1D9E75}
-.flow-arrow{color:rgba(255,255,255,.3);font-size:18px}
+/* ── SISTEMA ── */
+.sistema-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.s-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:1.75rem;position:relative;overflow:hidden;transition:border-color .3s,transform .3s}
+.s-card:hover{border-color:rgba(29,158,117,.35);transform:translateY(-4px)}
+.s-card::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(29,158,117,.4),transparent);opacity:0;transition:opacity .3s}
+.s-card:hover::after{opacity:1}
+.s-card.wide{grid-column:span 3}
+.s-icon{width:46px;height:46px;border-radius:12px;background:var(--vl);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:1.25rem}
+.s-title{font-size:15px;font-weight:600;margin-bottom:.5rem}
+.s-desc{font-size:13px;color:var(--muted);line-height:1.65;margin-bottom:1rem}
+.s-tags{display:flex;gap:6px;flex-wrap:wrap}
+.s-tag{font-size:11px;padding:3px 10px;border-radius:20px;background:var(--vl);color:#5EFFC4;border:1px solid rgba(29,158,117,.2)}
+.s-card.wide .s-desc{max-width:600px}
 
-/* SERVICIOS */
-.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1rem}
-.srv-card{border:1.5px solid var(--borde);border-radius:14px;padding:1.5rem;transition:border-color .15s,box-shadow .15s}
-.srv-card:hover{border-color:var(--verde);box-shadow:0 4px 20px rgba(29,158,117,.08)}
-.srv-icon{width:40px;height:40px;background:var(--verde-light);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;font-size:20px}
-.srv-name{font-size:14px;font-weight:600;margin-bottom:.4rem}
-.srv-desc{font-size:13px;color:var(--gris);line-height:1.5;margin-bottom:.75rem}
-.srv-price{font-size:13px;font-weight:600;color:var(--verde)}
-.srv-badge{display:inline-block;font-size:10px;padding:2px 8px;border-radius:20px;background:#0d1117;color:#fff;margin-bottom:.5rem}
+/* ── VOZ HIGHLIGHT ── */
+.voz-banner{background:linear-gradient(135deg,rgba(29,158,117,.12),rgba(29,158,117,.04));border:1px solid rgba(29,158,117,.25);border-radius:20px;padding:2rem;display:flex;align-items:center;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+.voz-icon{font-size:3rem;flex-shrink:0}
+.voz-title{font-size:16px;font-weight:600;margin-bottom:.4rem;color:#5EFFC4}
+.voz-desc{font-size:13px;color:var(--muted);line-height:1.6}
+.voz-badge{display:inline-block;font-size:11px;padding:2px 10px;border-radius:20px;background:rgba(29,158,117,.2);color:#5EFFC4;margin-top:.5rem;font-weight:500}
 
-/* PLANES */
-.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.25rem}
-.plan{border:1.5px solid var(--borde);border-radius:16px;padding:1.75rem;position:relative}
-.plan.featured{border-color:var(--verde);background:var(--verde-light)}
-.plan-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--verde);color:#fff;font-size:11px;font-weight:600;padding:3px 14px;border-radius:20px;white-space:nowrap}
-.plan-name{font-size:13px;font-weight:600;color:var(--gris);margin-bottom:.5rem}
-.plan-price{font-size:2rem;font-weight:700;color:var(--negro);line-height:1;margin-bottom:.25rem}
-.plan-price span{font-size:14px;font-weight:400;color:var(--gris)}
-.plan-setup{font-size:12px;color:var(--verde);font-weight:500;margin-bottom:.5rem}
-.plan-desc{font-size:13px;color:var(--gris);margin:.75rem 0 1.25rem;line-height:1.5}
-.plan-features{list-style:none;display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.5rem}
-.plan-features li{font-size:13px;color:var(--negro);display:flex;align-items:flex-start;gap:8px}
-.plan-features li::before{content:'✓';color:var(--verde);font-weight:700;flex-shrink:0;margin-top:1px}
-.plan-wa{display:block;text-align:center;padding:10px;border-radius:20px;font-size:13px;font-weight:600;border:1.5px solid var(--verde);color:var(--verde);transition:all .15s;margin-top:auto}
-.plan-wa:hover,.plan.featured .plan-wa{background:var(--verde);color:#fff}
-.paypal-container{margin-top:12px}
+/* ── PLANES ── */
+.planes-bg{background:rgba(255,255,255,.015);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.planes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.plan{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:2rem;position:relative;display:flex;flex-direction:column;transition:all .3s}
+.plan:hover{transform:translateY(-4px)}
+.plan.featured{border-color:rgba(29,158,117,.4);background:linear-gradient(160deg,rgba(29,158,117,.09) 0%,var(--card) 60%)}
+.plan-ribbon{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--v);color:var(--w);font-size:10px;font-weight:700;padding:3px 16px;border-radius:20px;white-space:nowrap;letter-spacing:.03em}
+.plan-name{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:.75rem}
+.plan-price{font-size:2.5rem;font-weight:700;line-height:1;margin-bottom:.25rem}
+.plan-price sub{font-size:15px;font-weight:400;color:var(--muted);vertical-align:baseline}
+.plan-period{font-size:13px;color:var(--muted);margin-bottom:.5rem}
+.plan-setup{font-size:12px;color:var(--v);font-weight:500;margin-bottom:1.25rem}
+.plan-divider{height:1px;background:var(--border);margin-bottom:1.25rem}
+.plan-features{list-style:none;display:flex;flex-direction:column;gap:.65rem;margin-bottom:auto;padding-bottom:1.5rem}
+.plan-features li{font-size:13px;color:rgba(255,255,255,.7);display:flex;gap:10px;align-items:flex-start;line-height:1.45}
+.plan-features li::before{content:'✓';color:var(--v);font-weight:700;flex-shrink:0;margin-top:1px}
+.plan-btn{display:block;width:100%;padding:12px;border-radius:14px;font-size:13px;font-weight:600;text-align:center;border:1px solid var(--border);color:var(--muted);background:none;cursor:pointer;transition:all .2s;margin-top:1rem}
+.plan.featured .plan-btn,.plan-btn:hover{background:var(--v);color:var(--w);border-color:var(--v)}
+.paypal-wrap{margin-top:.75rem}
 
-/* PROCESO */
-.process{display:flex;flex-direction:column;gap:1px;border:1.5px solid var(--borde);border-radius:16px;overflow:hidden}
-.step{display:flex;gap:1.25rem;padding:1.25rem 1.5rem;background:#fff;align-items:flex-start}
-.step:not(:last-child){border-bottom:1px solid var(--borde)}
-.step-num{width:32px;height:32px;background:var(--verde);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0}
-.step-title{font-size:14px;font-weight:600;margin-bottom:3px}
-.step-desc{font-size:13px;color:var(--gris);line-height:1.5}
+/* ── PROCESO ── */
+.proc-list{display:flex;flex-direction:column;gap:1px}
+.proc{display:flex;gap:1.5rem;padding:1.5rem;background:var(--card);border:1px solid var(--border);border-radius:16px;transition:border-color .2s;margin-bottom:6px}
+.proc:hover{border-color:rgba(29,158,117,.3)}
+.proc-num{width:36px;height:36px;border-radius:50%;background:var(--vl);border:1px solid rgba(29,158,117,.3);color:var(--v);font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.proc-t{font-size:14px;font-weight:600;margin-bottom:4px}
+.proc-d{font-size:13px;color:var(--muted);line-height:1.6}
 
-/* SECTORES */
-.sectores-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px}
-.sector{background:var(--gris-claro);border-radius:var(--borde);padding:.75rem 1rem;display:flex;align-items:center;gap:8px;font-size:13px;color:var(--negro);border:1px solid var(--borde)}
-.sector:hover{border-color:var(--verde);background:var(--verde-light)}
+/* ── SECTORES ── */
+.sec-dark{background:rgba(255,255,255,.013);border-top:1px solid var(--border)}
+.sectores-wrap{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:2.5rem}
+.sector{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:30px;padding:8px 18px;font-size:13px;color:var(--muted);display:flex;align-items:center;gap:6px;transition:all .2s}
+.sector:hover{background:var(--vl);border-color:rgba(29,158,117,.3);color:var(--w)}
 
-/* CTA */
-.cta-section{background:var(--negro);color:#fff;text-align:center;padding:4rem 2rem}
-.cta-section h2{font-size:1.75rem;font-weight:700;margin-bottom:.75rem}
-.cta-section p{color:rgba(255,255,255,.6);font-size:1rem;margin-bottom:2rem;max-width:440px;margin-left:auto;margin-right:auto}
-.btn-wa{background:var(--verde);color:#fff;padding:14px 32px;border-radius:28px;font-size:15px;font-weight:600;display:inline-flex;align-items:center;gap:10px;transition:background .15s;text-decoration:none}
-.btn-wa:hover{background:var(--verde-dark)}
+/* ── CTA ── */
+.cta{padding:9rem 2rem;text-align:center;position:relative;overflow:hidden}
+.cta-glow{position:absolute;inset:0;background:radial-gradient(ellipse 50% 70% at 50% 50%,rgba(29,158,117,.14),transparent);pointer-events:none}
+.cta-inner{position:relative;max-width:620px;margin:0 auto}
+.cta-h{font-size:clamp(2rem,5vw,3.25rem);font-weight:700;line-height:1.12;letter-spacing:-.3px;margin-bottom:1rem}
+.cta-h em{font-style:normal;color:var(--v)}
+.cta-p{font-size:1rem;color:var(--muted);margin-bottom:2.5rem;line-height:1.7}
 
-footer{text-align:center;padding:1.5rem 2rem;font-size:12px;color:var(--gris);border-top:1px solid var(--borde)}
-footer strong{color:var(--verde)}
+/* ── FOOTER ── */
+footer{padding:2rem 2.5rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-logo{font-size:14px;color:var(--muted)}
+.footer-logo strong{color:var(--v)}
+.footer-links{display:flex;gap:1.5rem}
+.footer-links a{font-size:12px;color:var(--muted);transition:color .2s}
+.footer-links a:hover{color:var(--w)}
 
-@media(max-width:600px){nav{padding:1rem}.hero{padding:3rem 1.25rem 2.5rem}.stats{gap:1.5rem}.section{padding:3rem 1.25rem}}
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+.reveal.on{opacity:1;transform:none}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .sistema-grid,.planes-grid{grid-template-columns:1fr}
+  .s-card.wide{grid-column:span 1}
+  .nav-links{display:none}
+  .stats{flex-wrap:wrap}
+  .stat{min-width:50%;border-right:none;border-bottom:1px solid var(--border)}
+  footer{flex-direction:column;text-align:center}
+}
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
-  <div class="nav-logo">
-    <div class="nav-icon">
+  <div class="logo">
+    <div class="logo-icon">
       <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
         <polyline points="2,12 5,12 7,6 9,18 11,9 13,14 15,12 22,12"/>
         <circle cx="22" cy="12" r="1.5" fill="#fff" stroke="none"/>
       </svg>
     </div>
-    <div class="nav-brand">Pulso <span>Digital</span></div>
+    <div class="logo-name">Pulso <span>Digital</span></div>
   </div>
-  <a class="nav-cta" href="https://wa.me/18097611027?text=Hola%20Pulso%20Digital%2C%20me%20interesa%20saber%20m%C3%A1s%20sobre%20sus%20servicios" target="_blank">Escríbenos</a>
+  <div class="nav-links">
+    <a href="#sistema">Sistema</a>
+    <a href="#planes">Planes</a>
+    <a href="#proceso">Proceso</a>
+    <a href="#sectores">Sectores</a>
+  </div>
+  <button class="nav-btn" onclick="window.open('https://wa.me/18097611027?text=Hola%20Pulso%20Digital%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20Sistema%20PULSO','_blank')">Hablar ahora</button>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
-  <div class="hero-badge">Agencia digital dominicana con IA</div>
-  <h1>Tu negocio consigue clientes <em>mientras duermes</em></h1>
-  <p>Automatizamos los mensajes de tu Instagram con inteligencia artificial para que nunca pierdas un cliente potencial. Hecho para negocios en República Dominicana.</p>
-  <div class="hero-btns">
-    <a class="btn-primary" href="https://wa.me/18097611027?text=Hola%2C%20quiero%20una%20demo%20gratis%20de%20automatizaci%C3%B3n%20para%20mi%20negocio" target="_blank">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.476 2 2 6.477 2 12c0 1.99.575 3.842 1.569 5.407L2.046 22l4.71-1.498A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.522 2 11.999 2z"/></svg>
-      Ver demo gratis
-    </a>
-    <a class="btn-secondary" href="mailto:digitalpulsoai@gmail.com">Enviar correo</a>
+  <div class="hero-glow"></div>
+  <div class="hero-dots"></div>
+  <div class="hero-inner">
+    <div class="hero-pill"><span class="hero-pill-dot"></span>Sistema PULSO · Hecho para negocios en RD</div>
+    <h1>Tu negocio visible,<br>automatizado y<br><em>vendiendo solo</em></h1>
+    <p class="hero-sub">Creamos tu presencia digital y automatizamos tus redes con notas de voz con IA. Tu negocio captura clientes las 24 horas sin que muevas un dedo.</p>
+    <div class="hero-btns">
+      <button class="btn-main" onclick="window.open('https://wa.me/18097611027?text=Hola%2C%20quiero%20ver%20una%20demo%20del%20Sistema%20PULSO','_blank')">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.99.574 3.843 1.568 5.408L2.046 22l4.71-1.498A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+        Ver demo gratis
+      </button>
+      <a class="btn-ghost" href="#planes">Ver planes →</a>
+    </div>
   </div>
 </section>
 
+<!-- STATS -->
 <div class="stats">
-  <div class="stat-item"><div class="stat-num">24/7</div><div class="stat-label">Tu negocio responde solo</div></div>
-  <div class="stat-item"><div class="stat-num">48h</div><div class="stat-label">Tiempo de configuración</div></div>
-  <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">Enfoque en RD</div></div>
-  <div class="stat-item"><div class="stat-num">$0</div><div class="stat-label">Para ver la demo</div></div>
+  <div class="stat"><div class="stat-n">24/7</div><div class="stat-l">Tu negocio capta leads</div></div>
+  <div class="stat"><div class="stat-n">48h</div><div class="stat-l">Sistema activo</div></div>
+  <div class="stat"><div class="stat-n">3 en 1</div><div class="stat-l">Web + Auto + Voz</div></div>
+  <div class="stat"><div class="stat-n">$0</div><div class="stat-l">Clientes perdidos de noche</div></div>
 </div>
 
-<div class="auto-hero">
-  <h2>Alguien entra a tu Instagram.<br>Tú ya le estás <em>respondiendo.</em></h2>
-  <p>Con nuestro sistema de automatización de DMs, cada persona que visita tu perfil recibe un mensaje personalizado automáticamente. Sin que tú hagas nada.</p>
-  <div class="auto-flow">
-    <div class="flow-step">👤 Cliente visita tu perfil</div>
-    <span class="flow-arrow">→</span>
-    <div class="flow-step">🤖 Sistema detecta la visita</div>
-    <span class="flow-arrow">→</span>
-    <div class="flow-step">💬 DM automático enviado</div>
-    <span class="flow-arrow">→</span>
-    <div class="flow-step">📞 Cliente te contacta</div>
-    <span class="flow-arrow">→</span>
-    <div class="flow-step">💰 Venta cerrada</div>
-  </div>
-  <a class="btn-wa" href="https://wa.me/18097611027?text=Hola%2C%20quiero%20ver%20c%C3%B3mo%20funciona%20la%20automatizaci%C3%B3n%20para%20mi%20negocio" target="_blank">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.476 2 2 6.477 2 12c0 1.99.575 3.842 1.569 5.407L2.046 22l4.71-1.498A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.522 2 11.999 2z"/></svg>
-    Quiero ver cómo funciona
-  </a>
-</div>
-
-<section class="section">
-  <div class="section-label">Servicios</div>
-  <div class="section-title">Todo lo que hacemos por tu negocio</div>
-  <div class="section-sub">Desde automatización completa hasta contenido mensual. Sin contratos largos.</div>
-  <div class="services-grid">
-    <div class="srv-card">
-      <div class="srv-badge">⭐ Más solicitado</div>
-      <div class="srv-icon">🤖</div>
-      <div class="srv-name">Automatización de DMs</div>
-      <div class="srv-desc">Flujos automáticos en Instagram que responden a visitas, comentarios y stories. Tu negocio trabaja solo las 24 horas.</div>
-      <div class="srv-price">Desde $15 / mes</div>
-    </div>
-    <div class="srv-card">
-      <div class="srv-icon">✍️</div>
-      <div class="srv-name">Contenido para redes</div>
-      <div class="srv-desc">Textos que generan antojo, confianza y ganas de comprar. Tú pones la foto, nosotros ponemos las palabras.</div>
-      <div class="srv-price">Incluido en plan Completo</div>
-    </div>
-    <div class="srv-card">
-      <div class="srv-icon">📋</div>
-      <div class="srv-name">Menú digital</div>
-      <div class="srv-desc">Menú profesional en PDF o imagen lista para WhatsApp e Instagram. Que tus clientes vean lo que vendes con claridad.</div>
-      <div class="srv-price">Desde $25 único</div>
-    </div>
-    <div class="srv-card">
-      <div class="srv-icon">💬</div>
-      <div class="srv-name">Scripts de WhatsApp</div>
-      <div class="srv-desc">Mensajes prediseñados para cerrar ventas, confirmar citas y reactivar clientes inactivos automáticamente.</div>
-      <div class="srv-price">Incluido en configuración</div>
+<!-- SISTEMA -->
+<section class="sec reveal" id="sistema">
+  <div class="sec-inner">
+    <div class="sec-tag">Sistema PULSO</div>
+    <div class="sec-h">Tres pilares.<br>Un sistema que trabaja solo.</div>
+    <div class="sec-sub">No vendemos herramientas sueltas. Entregamos un ecosistema digital completo que funciona junto para que tu negocio crezca sin depender de ti.</div>
+    <div class="sistema-grid">
+      <div class="s-card">
+        <div class="s-icon">🌐</div>
+        <div class="s-title">Presencia Digital Profesional</div>
+        <div class="s-desc">Tu página web diseñada para convertir visitas en clientes. Rápida, visible en Google y con tu catálogo de productos o servicios siempre actualizado.</div>
+        <div class="s-tags">
+          <span class="s-tag">Página web completa</span>
+          <span class="s-tag">Catálogo digital</span>
+          <span class="s-tag">Visible en Google</span>
+          <span class="s-tag">Botón WhatsApp</span>
+        </div>
+      </div>
+      <div class="s-card">
+        <div class="s-icon">🤖</div>
+        <div class="s-title">Automatización de Redes</div>
+        <div class="s-desc">Tu Instagram responde solo a cada comentario, mensaje directo e interacción. Captura leads automáticamente mientras tú duermes o atiendes otros clientes.</div>
+        <div class="s-tags">
+          <span class="s-tag">DMs automáticos</span>
+          <span class="s-tag">Respuesta a comentarios</span>
+          <span class="s-tag">Captura de leads 24h</span>
+          <span class="s-tag">Sin intervención</span>
+        </div>
+      </div>
+      <div class="s-card">
+        <div class="s-icon">🎙️</div>
+        <div class="s-title">Notas de Voz con IA</div>
+        <div class="s-desc">En lugar de un texto frío, tu cliente recibe una nota de voz que suena humana y personal. La tasa de apertura es incomparable con cualquier mensaje de texto.</div>
+        <div class="s-tags">
+          <span class="s-tag">Voz con IA natural</span>
+          <span class="s-tag">Incluye link de tu web</span>
+          <span class="s-tag">Genera confianza</span>
+          <span class="s-tag">Viral y diferente</span>
+        </div>
+      </div>
+      <div class="s-card wide">
+        <div class="voz-banner">
+          <div class="voz-icon">🎙️</div>
+          <div>
+            <div class="voz-title">El diferenciador que nadie más ofrece en RD</div>
+            <div class="voz-desc">Alguien comenta en tu publicación a las 10 de la noche. En segundos le llega una nota de voz al DM que suena exactamente como alguien de tu negocio, le dice su nombre, le habla de tus servicios y le manda el link de tu página. Esa persona lo escucha porque nunca lo espera. Y cuando lo escucha, ya es tu cliente potencial.</div>
+            <span class="voz-badge">Incluido en PULSO Pro y PULSO Elite</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<section style="background:var(--gris-claro);padding:4rem 2rem">
-  <div style="max-width:960px;margin:0 auto">
-    <div class="section-label">Planes</div>
-    <div class="section-title">Elige cómo quieres crecer</div>
-    <div class="section-sub">Empieza con lo que necesitas ahora. Sin compromisos largos. Cancela cuando quieras.</div>
-    <div class="pricing-grid">
+<!-- PLANES -->
+<section class="sec planes-bg reveal" id="planes">
+  <div class="sec-inner">
+    <div class="sec-tag">Planes</div>
+    <div class="sec-h">Elige cómo quieres crecer</div>
+    <div class="sec-sub">Sin contratos largos. Cancela cuando quieras. Empieza con lo que necesitas hoy.</div>
+    <div class="planes-grid">
 
       <div class="plan">
-        <div class="plan-name">Arranque</div>
-        <div class="plan-price">$70 <span>único</span></div>
-        <div class="plan-setup">Sin mensualidad</div>
-        <div class="plan-desc">Para negocios que quieren probar la automatización sin compromiso mensual.</div>
+        <div class="plan-name">PULSO Básico</div>
+        <div class="plan-price">$97 <sub>único</sub></div>
+        <div class="plan-period">Pago único · Sin mensualidad</div>
+        <div class="plan-setup">La base digital que todo negocio necesita</div>
+        <div class="plan-divider"></div>
         <ul class="plan-features">
-          <li>1 flujo de bienvenida automático</li>
-          <li>Respuesta a visitas de perfil</li>
-          <li>Hasta 1,000 contactos</li>
-          <li>Entrega en 48 horas</li>
-          <li>Manual de uso incluido</li>
+          <li>Página web profesional completa</li>
+          <li>Catálogo de productos o servicios</li>
+          <li>Botón de WhatsApp integrado</li>
+          <li>Formulario de contacto activo</li>
+          <li>Optimización básica para Google</li>
+          <li>Entrega en 5 días hábiles</li>
+          <li>1 revisión incluida</li>
         </ul>
-        <a class="plan-wa" href="https://wa.me/18097611027?text=Hola%2C%20me%20interesa%20el%20Plan%20Arranque%20de%20%2470" target="_blank">Contratar por WhatsApp</a>
+        <button class="plan-btn" onclick="window.open('https://wa.me/18097611027?text=Hola%2C%20me%20interesa%20el%20PULSO%20B%C3%A1sico%20por%20%2497','_blank')">Contratar por WhatsApp</button>
       </div>
 
       <div class="plan featured">
-        <div class="plan-badge">⭐ Más popular</div>
-        <div class="plan-name">Profesional</div>
-        <div class="plan-price">$15 <span>/ mes</span></div>
-        <div class="plan-setup">+ $60 configuración inicial</div>
-        <div class="plan-desc">La solución completa para negocios que quieren crecer con automatización real.</div>
+        <div class="plan-ribbon">⭐ Más contratado</div>
+        <div class="plan-name">PULSO Pro</div>
+        <div class="plan-price">$49 <sub>/mes</sub></div>
+        <div class="plan-period">+ $97 configuración inicial</div>
+        <div class="plan-setup">Página + Automatización + Nota de voz con IA</div>
+        <div class="plan-divider"></div>
         <ul class="plan-features">
-          <li>3 flujos automáticos activos</li>
-          <li>Respuesta a stories y comentarios</li>
-          <li>Secuencia de seguimiento de leads</li>
-          <li>Optimización mensual incluida</li>
+          <li>Todo el PULSO Básico incluido</li>
+          <li>Automatización de DMs en Instagram</li>
+          <li>Respuesta automática a comentarios</li>
+          <li>Nota de voz con IA personalizada</li>
+          <li>Captura de leads las 24 horas</li>
           <li>Reporte mensual de resultados</li>
+          <li>Optimización mensual del sistema</li>
           <li>Soporte por WhatsApp</li>
         </ul>
-        <div class="paypal-container">
-          <div id="paypal-button-container-P-8DX51972US439411ANI4GWAA"></div>
+        <div class="paypal-wrap">
+          <div id="pp-pro"></div>
         </div>
       </div>
 
       <div class="plan">
-        <div class="plan-name">Completo</div>
-        <div class="plan-price">$100 <span>/ mes</span></div>
-        <div class="plan-setup">Todo incluido · Sin pago inicial</div>
-        <div class="plan-desc">Para negocios que quieren automatización total y contenido mensual en un solo plan.</div>
+        <div class="plan-name">PULSO Elite</div>
+        <div class="plan-price">$149 <sub>/mes</sub></div>
+        <div class="plan-period">Todo incluido · Sin pago inicial</div>
+        <div class="plan-setup">El sistema completo para dominar tu mercado</div>
+        <div class="plan-divider"></div>
         <ul class="plan-features">
-          <li>Flujos ilimitados de DMs</li>
+          <li>Todo el PULSO Pro incluido</li>
           <li>Contenido mensual para redes</li>
-          <li>Integración con WhatsApp</li>
-          <li>Scripts de ventas incluidos</li>
-          <li>Soporte prioritario</li>
-          <li>Optimización semanal</li>
+          <li>Gestión de reseñas de Google</li>
+          <li>Campaña mensual de WhatsApp</li>
+          <li>Actualización del catálogo web</li>
+          <li>Notas de voz actualizadas mensualmente</li>
+          <li>Soporte prioritario 7 días</li>
+          <li>Reunión mensual de resultados</li>
         </ul>
-        <div class="paypal-container">
-          <div id="paypal-button-container-P-4TF590810D7587323NI4G3FI"></div>
+        <div class="paypal-wrap">
+          <div id="pp-elite"></div>
         </div>
       </div>
 
@@ -256,82 +318,517 @@ footer strong{color:var(--verde)}
   </div>
 </section>
 
-<section class="section">
-  <div class="section-label">Proceso</div>
-  <div class="section-title">Listo en 48 horas</div>
-  <div class="section-sub">Sin reuniones largas. Sin tecnicismos. Tu sistema funcionando en dos días.</div>
-  <div class="process">
-    <div class="step"><div class="step-num">1</div><div><div class="step-title">Nos escribes por WhatsApp</div><div class="step-desc">Cuéntanos qué tipo de negocio tienes. Te hacemos una demo gratis para que veas cómo quedaría tu automatización.</div></div></div>
-    <div class="step"><div class="step-num">2</div><div><div class="step-title">Eliges tu plan y pagas</div><div class="step-desc">Seleccionas el plan que más te conviene y realizas el pago. Sin pago no hay servicio — así de claro y seguro para ambos.</div></div></div>
-    <div class="step"><div class="step-num">3</div><div><div class="step-title">Configuramos tu sistema en 48 horas</div><div class="step-desc">Creamos y activamos todos tus flujos automáticos en Instagram. Te enviamos acceso y te explicamos cómo funciona.</div></div></div>
-    <div class="step"><div class="step-num">4</div><div><div class="step-title">Tu negocio trabaja solo</div><div class="step-desc">Desde ese momento cada persona que visita tu perfil recibe respuesta automática. Tú te enfocas en atender, nosotros en capturar.</div></div></div>
-  </div>
-</section>
-
-<section style="background:var(--gris-claro);padding:4rem 2rem">
-  <div style="max-width:960px;margin:0 auto">
-    <div class="section-label">Sectores</div>
-    <div class="section-title">Trabajamos con todo tipo de negocio en RD</div>
-    <div class="section-sub" style="margin-bottom:1.5rem">Si tienes Instagram y quieres más clientes, podemos ayudarte.</div>
-    <div class="sectores-grid">
-      <div class="sector">🍽️ Restaurantes</div>
-      <div class="sector">🦷 Dentistas</div>
-      <div class="sector">✨ Estéticas</div>
-      <div class="sector">🚗 Dealers</div>
-      <div class="sector">🏥 Clínicas</div>
-      <div class="sector">💇 Salones</div>
-      <div class="sector">❄️ Aires A/C</div>
-      <div class="sector">🔧 Talleres</div>
-      <div class="sector">🏠 Inmobiliarias</div>
-      <div class="sector">💊 Farmacias</div>
-      <div class="sector">🐾 Veterinarias</div>
-      <div class="sector">👗 Tiendas</div>
+<!-- PROCESO -->
+<section class="sec reveal" id="proceso">
+  <div class="sec-inner" style="max-width:860px">
+    <div class="sec-tag">Proceso</div>
+    <div class="sec-h">Tu sistema activo<br>en 48 horas</div>
+    <div class="sec-sub">Sin reuniones interminables. Sin tecnicismos. Sin complicaciones.</div>
+    <div class="proc-list">
+      <div class="proc">
+        <div class="proc-num">1</div>
+        <div><div class="proc-t">Nos escribes por WhatsApp</div><div class="proc-d">Cuéntanos sobre tu negocio. Te mostramos una demo gratis de cómo quedaría tu Sistema PULSO completo. Sin compromiso ni costo.</div></div>
+      </div>
+      <div class="proc">
+        <div class="proc-num">2</div>
+        <div><div class="proc-t">Eliges tu plan y activamos</div><div class="proc-d">Seleccionas el plan que más te conviene. Realizas el pago y comenzamos de inmediato con la configuración de tu sistema.</div></div>
+      </div>
+      <div class="proc">
+        <div class="proc-num">3</div>
+        <div><div class="proc-t">Construimos tu sistema en 48 horas</div><div class="proc-d">Creamos tu página web, configuramos la automatización y grabamos tu nota de voz con IA. Todo probado y funcionando antes de entregarlo.</div></div>
+      </div>
+      <div class="proc">
+        <div class="proc-num">4</div>
+        <div><div class="proc-t">Tu negocio trabaja solo desde ese momento</div><div class="proc-d">Cada persona que interactúa con tu Instagram recibe una nota de voz personalizada con el link de tu página. Tú solo cierras las ventas que llegan solas.</div></div>
+      </div>
     </div>
   </div>
 </section>
 
-<div class="cta-section">
-  <h2>¿Listo para que tu negocio nunca pierda un cliente?</h2>
-  <p>Escríbenos ahora y te hacemos una demo gratis de cómo quedaría tu automatización. Sin costo, sin compromiso.</p>
-  <a class="btn-wa" href="https://wa.me/18097611027?text=Hola%20Pulso%20Digital%2C%20quiero%20ver%20la%20demo%20gratis%20de%20automatizaci%C3%B3n" target="_blank">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.476 2 2 6.477 2 12c0 1.99.575 3.842 1.569 5.407L2.046 22l4.71-1.498A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.522 2 11.999 2z"/></svg>
-    Ver demo gratis ahora
-  </a>
-</div>
+<!-- SECTORES -->
+<section class="sec sec-dark reveal" id="sectores">
+  <div class="sec-inner" style="text-align:center">
+    <div class="sec-tag">Sectores</div>
+    <div class="sec-h">Para cualquier negocio en RD<br>que quiera crecer</div>
+    <div class="sectores-wrap">
+      <div class="sector">🚗 Dealers de carros</div>
+      <div class="sector">🦷 Consultorios dentales</div>
+      <div class="sector">✨ Clínicas estéticas</div>
+      <div class="sector">🏥 Centros médicos</div>
+      <div class="sector">💇 Salones de belleza</div>
+      <div class="sector">❄️ Técnicos de aires</div>
+      <div class="sector">🔧 Talleres mecánicos</div>
+      <div class="sector">🏠 Inmobiliarias</div>
+      <div class="sector">🍽️ Restaurantes</div>
+      <div class="sector">💊 Farmacias</div>
+      <div class="sector">🐾 Veterinarias</div>
+      <div class="sector">👗 Tiendas de ropa</div>
+      <div class="sector">🏋️ Gimnasios</div>
+      <div class="sector">📸 Fotógrafos</div>
+      <div class="sector">⚖️ Bufetes legales</div>
+      <div class="sector">🎓 Academias</div>
+    </div>
+  </div>
+</section>
 
+<!-- CTA -->
+<section class="cta reveal">
+  <div class="cta-glow"></div>
+  <div class="cta-inner">
+    <div class="cta-h">Tu negocio merece<br><em>no perder más clientes</em></div>
+    <p class="cta-p">Cada día sin el Sistema PULSO es un cliente que llegó a tu Instagram de noche, no recibió respuesta y compró en la competencia esta mañana.</p>
+    <button class="btn-main" onclick="window.open('https://wa.me/18097611027?text=Hola%20Pulso%20Digital%2C%20quiero%20activar%20el%20Sistema%20PULSO%20para%20mi%20negocio','_blank')">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.99.574 3.843 1.568 5.408L2.046 22l4.71-1.498A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+      Activar mi Sistema PULSO
+    </button>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
-  © 2026 <strong>Pulso Digital RD</strong> · República Dominicana · <a href="mailto:digitalpulsoai@gmail.com" style="color:var(--verde)">digitalpulsoai@gmail.com</a>
+  <div class="footer-logo">© 2026 <strong>Pulso Digital RD</strong> · República Dominicana</div>
+  <div class="footer-links">
+    <a href="mailto:digitalpulsoai@gmail.com">digitalpulsoai@gmail.com</a>
+    <a href="https://wa.me/18097611027" target="_blank">WhatsApp</a>
+  </div>
 </footer>
 
 <script>
-  function initPayPal() {
-    if (typeof paypal === 'undefined') {
-      setTimeout(initPayPal, 300);
-      return;
-    }
-    paypal.Buttons({
-      style:{shape:'pill',color:'blue',layout:'vertical',label:'subscribe'},
-      createSubscription:function(data,actions){
-        return actions.subscription.create({plan_id:'P-8DX51972US439411ANI4GWAA'});
-      },
-      onApprove:function(data,actions){
-        window.location.href='https://wa.me/18097611027?text=Hola%2C%20acabo%20de%20suscribirme%20al%20Plan%20Profesional.%20Mi%20ID%20es%3A%20'+data.subscriptionID;
-      }
-    }).render('#paypal-button-container-P-8DX51972US439411ANI4GWAA');
+// Reveal on scroll
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')});
+},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
-    paypal.Buttons({
-      style:{shape:'pill',color:'blue',layout:'vertical',label:'subscribe'},
-      createSubscription:function(data,actions){
-        return actions.subscription.create({plan_id:'P-4TF590810D7587323NI4G3FI'});
-      },
-      onApprove:function(data,actions){
-        window.location.href='https://wa.me/18097611027?text=Hola%2C%20acabo%20de%20suscribirme%20al%20Plan%20Completo.%20Mi%20ID%20es%3A%20'+data.subscriptionID;
-      }
-    }).render('#paypal-button-container-P-4TF590810D7587323NI4G3FI');
-  }
+// PayPal
+function initPP(){
+  if(typeof paypal==='undefined'){setTimeout(initPP,300);return}
+  const cfg=s=>({
+    style:{shape:'pill',color:'blue',layout:'vertical',label:'subscribe'},
+    createSubscription:(d,a)=>a.subscription.create({plan_id:s}),
+    onApprove:d=>{window.open('https://wa.me/18097611027?text=Hola%2C%20me%20susc%20ID%3A'+d.subscriptionID,'_blank')}
+  });
+  paypal.Buttons(cfg('P-8DX51972US439411ANI4GWAA')).render('#pp-pro');
+  paypal.Buttons(cfg('P-4TF590810D7587323NI4G3FI')).render('#pp-elite');
+}
 </script>
-<script src="https://www.paypal.com/sdk/js?client-id=BAAAbZSKmibhKULqFnbrfcobeMtva3SNEmD7HnHLVoc6sioKyyHUHEvT1c3W2a165OsMVTgbr-BVSXnS5s&vault=true&intent=subscription" data-sdk-integration-source="button-factory" onload="initPayPal()"></script>
+<script src="https://www.paypal.com/sdk/js?client-id=BAAAbZSKmibhKULqFnbrfcobeMtva3SNEmD7HnHLVoc6sioKyyHUHEvT1c3W2a165OsMVTgbr-BVSXnS5s&vault=true&intent=subscription" data-sdk-integration-source="button-factory" onload="initPP()"></script>
+</body>
+</html><!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pulso Digital — Sistema PULSO para negocios en RD</title>
+<meta name="description" content="Página web profesional + automatización de redes + notas de voz con IA. El sistema completo para negocios en República Dominicana.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--v:#1D9E75;--vd:#0F6E56;--vl:rgba(29,158,117,.12);--w:#fff;--bg:#070707;--card:#0e0e0e;--border:rgba(255,255,255,.07);--muted:rgba(255,255,255,.45)}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--w);line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
 
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 2.5rem;background:rgba(7,7,7,.8);backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-icon{width:32px;height:32px;background:var(--v);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.logo-icon svg{width:18px;height:18px}
+.logo-name{font-size:15px;font-weight:600;letter-spacing:-.2px}
+.logo-name span{color:var(--v);font-weight:400}
+.nav-links{display:flex;gap:2rem}
+.nav-links a{font-size:13px;color:var(--muted);transition:color .2s}
+.nav-links a:hover{color:var(--w)}
+.nav-btn{background:var(--v);color:var(--w);font-size:13px;font-weight:500;padding:8px 20px;border-radius:20px;border:none;cursor:pointer;transition:background .2s}
+.nav-btn:hover{background:var(--vd)}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:9rem 2rem 5rem;position:relative;overflow:hidden}
+.hero-glow{position:absolute;top:-20%;left:50%;transform:translateX(-50%);width:900px;height:600px;background:radial-gradient(ellipse,rgba(29,158,117,.18) 0%,transparent 70%);pointer-events:none}
+.hero-dots{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.04) 1px,transparent 1px);background-size:32px 32px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black,transparent);pointer-events:none}
+.hero-inner{position:relative;max-width:800px}
+.hero-pill{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(29,158,117,.35);background:rgba(29,158,117,.08);color:#5EFFC4;font-size:12px;font-weight:500;padding:6px 16px;border-radius:20px;margin-bottom:2rem}
+.hero-pill-dot{width:6px;height:6px;background:var(--v);border-radius:50%;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+h1{font-size:clamp(2.75rem,6vw,4.25rem);font-weight:700;line-height:1.08;letter-spacing:-.5px;margin-bottom:1.5rem}
+h1 em{font-style:normal;background:linear-gradient(130deg,#1D9E75 30%,#5EFFC4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:1.1rem;color:var(--muted);max-width:500px;margin:0 auto 2.5rem;line-height:1.75}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-main{display:inline-flex;align-items:center;gap:8px;background:var(--v);color:var(--w);font-size:15px;font-weight:600;padding:14px 32px;border-radius:28px;border:none;cursor:pointer;transition:all .25s}
+.btn-main:hover{background:var(--vd);transform:translateY(-2px);box-shadow:0 10px 35px rgba(29,158,117,.3)}
+.btn-ghost{display:inline-flex;align-items:center;gap:6px;color:var(--muted);font-size:15px;padding:14px 24px;border-radius:28px;border:1px solid var(--border);transition:all .2s}
+.btn-ghost:hover{color:var(--w);border-color:rgba(255,255,255,.2)}
+
+/* ── STATS BAR ── */
+.stats{display:flex;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.stat{flex:1;padding:2rem 1.5rem;text-align:center;border-right:1px solid var(--border)}
+.stat:last-child{border-right:none}
+.stat-n{font-size:1.75rem;font-weight:700;color:var(--v);line-height:1}
+.stat-l{font-size:12px;color:var(--muted);margin-top:5px}
+
+/* ── SECTIONS COMMON ── */
+.sec{padding:6rem 2rem}
+.sec-inner{max-width:1100px;margin:0 auto}
+.sec-tag{display:inline-block;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--v);margin-bottom:.75rem}
+.sec-h{font-size:clamp(1.75rem,4vw,2.75rem);font-weight:700;letter-spacing:-.3px;line-height:1.15;margin-bottom:.75rem}
+.sec-sub{font-size:1rem;color:var(--muted);max-width:500px;line-height:1.7;margin-bottom:3rem}
+
+/* ── SISTEMA ── */
+.sistema-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.s-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:1.75rem;position:relative;overflow:hidden;transition:border-color .3s,transform .3s}
+.s-card:hover{border-color:rgba(29,158,117,.35);transform:translateY(-4px)}
+.s-card::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(29,158,117,.4),transparent);opacity:0;transition:opacity .3s}
+.s-card:hover::after{opacity:1}
+.s-card.wide{grid-column:span 3}
+.s-icon{width:46px;height:46px;border-radius:12px;background:var(--vl);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:1.25rem}
+.s-title{font-size:15px;font-weight:600;margin-bottom:.5rem}
+.s-desc{font-size:13px;color:var(--muted);line-height:1.65;margin-bottom:1rem}
+.s-tags{display:flex;gap:6px;flex-wrap:wrap}
+.s-tag{font-size:11px;padding:3px 10px;border-radius:20px;background:var(--vl);color:#5EFFC4;border:1px solid rgba(29,158,117,.2)}
+.s-card.wide .s-desc{max-width:600px}
+
+/* ── VOZ HIGHLIGHT ── */
+.voz-banner{background:linear-gradient(135deg,rgba(29,158,117,.12),rgba(29,158,117,.04));border:1px solid rgba(29,158,117,.25);border-radius:20px;padding:2rem;display:flex;align-items:center;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+.voz-icon{font-size:3rem;flex-shrink:0}
+.voz-title{font-size:16px;font-weight:600;margin-bottom:.4rem;color:#5EFFC4}
+.voz-desc{font-size:13px;color:var(--muted);line-height:1.6}
+.voz-badge{display:inline-block;font-size:11px;padding:2px 10px;border-radius:20px;background:rgba(29,158,117,.2);color:#5EFFC4;margin-top:.5rem;font-weight:500}
+
+/* ── PLANES ── */
+.planes-bg{background:rgba(255,255,255,.015);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.planes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.plan{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:2rem;position:relative;display:flex;flex-direction:column;transition:all .3s}
+.plan:hover{transform:translateY(-4px)}
+.plan.featured{border-color:rgba(29,158,117,.4);background:linear-gradient(160deg,rgba(29,158,117,.09) 0%,var(--card) 60%)}
+.plan-ribbon{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--v);color:var(--w);font-size:10px;font-weight:700;padding:3px 16px;border-radius:20px;white-space:nowrap;letter-spacing:.03em}
+.plan-name{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:.75rem}
+.plan-price{font-size:2.5rem;font-weight:700;line-height:1;margin-bottom:.25rem}
+.plan-price sub{font-size:15px;font-weight:400;color:var(--muted);vertical-align:baseline}
+.plan-period{font-size:13px;color:var(--muted);margin-bottom:.5rem}
+.plan-setup{font-size:12px;color:var(--v);font-weight:500;margin-bottom:1.25rem}
+.plan-divider{height:1px;background:var(--border);margin-bottom:1.25rem}
+.plan-features{list-style:none;display:flex;flex-direction:column;gap:.65rem;margin-bottom:auto;padding-bottom:1.5rem}
+.plan-features li{font-size:13px;color:rgba(255,255,255,.7);display:flex;gap:10px;align-items:flex-start;line-height:1.45}
+.plan-features li::before{content:'✓';color:var(--v);font-weight:700;flex-shrink:0;margin-top:1px}
+.plan-btn{display:block;width:100%;padding:12px;border-radius:14px;font-size:13px;font-weight:600;text-align:center;border:1px solid var(--border);color:var(--muted);background:none;cursor:pointer;transition:all .2s;margin-top:1rem}
+.plan.featured .plan-btn,.plan-btn:hover{background:var(--v);color:var(--w);border-color:var(--v)}
+.paypal-wrap{margin-top:.75rem}
+
+/* ── PROCESO ── */
+.proc-list{display:flex;flex-direction:column;gap:1px}
+.proc{display:flex;gap:1.5rem;padding:1.5rem;background:var(--card);border:1px solid var(--border);border-radius:16px;transition:border-color .2s;margin-bottom:6px}
+.proc:hover{border-color:rgba(29,158,117,.3)}
+.proc-num{width:36px;height:36px;border-radius:50%;background:var(--vl);border:1px solid rgba(29,158,117,.3);color:var(--v);font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.proc-t{font-size:14px;font-weight:600;margin-bottom:4px}
+.proc-d{font-size:13px;color:var(--muted);line-height:1.6}
+
+/* ── SECTORES ── */
+.sec-dark{background:rgba(255,255,255,.013);border-top:1px solid var(--border)}
+.sectores-wrap{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:2.5rem}
+.sector{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:30px;padding:8px 18px;font-size:13px;color:var(--muted);display:flex;align-items:center;gap:6px;transition:all .2s}
+.sector:hover{background:var(--vl);border-color:rgba(29,158,117,.3);color:var(--w)}
+
+/* ── CTA ── */
+.cta{padding:9rem 2rem;text-align:center;position:relative;overflow:hidden}
+.cta-glow{position:absolute;inset:0;background:radial-gradient(ellipse 50% 70% at 50% 50%,rgba(29,158,117,.14),transparent);pointer-events:none}
+.cta-inner{position:relative;max-width:620px;margin:0 auto}
+.cta-h{font-size:clamp(2rem,5vw,3.25rem);font-weight:700;line-height:1.12;letter-spacing:-.3px;margin-bottom:1rem}
+.cta-h em{font-style:normal;color:var(--v)}
+.cta-p{font-size:1rem;color:var(--muted);margin-bottom:2.5rem;line-height:1.7}
+
+/* ── FOOTER ── */
+footer{padding:2rem 2.5rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-logo{font-size:14px;color:var(--muted)}
+.footer-logo strong{color:var(--v)}
+.footer-links{display:flex;gap:1.5rem}
+.footer-links a{font-size:12px;color:var(--muted);transition:color .2s}
+.footer-links a:hover{color:var(--w)}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+.reveal.on{opacity:1;transform:none}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .sistema-grid,.planes-grid{grid-template-columns:1fr}
+  .s-card.wide{grid-column:span 1}
+  .nav-links{display:none}
+  .stats{flex-wrap:wrap}
+  .stat{min-width:50%;border-right:none;border-bottom:1px solid var(--border)}
+  footer{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">
+    <div class="logo-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="2,12 5,12 7,6 9,18 11,9 13,14 15,12 22,12"/>
+        <circle cx="22" cy="12" r="1.5" fill="#fff" stroke="none"/>
+      </svg>
+    </div>
+    <div class="logo-name">Pulso <span>Digital</span></div>
+  </div>
+  <div class="nav-links">
+    <a href="#sistema">Sistema</a>
+    <a href="#planes">Planes</a>
+    <a href="#proceso">Proceso</a>
+    <a href="#sectores">Sectores</a>
+  </div>
+  <button class="nav-btn" onclick="window.open('https://wa.me/18097611027?text=Hola%20Pulso%20Digital%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20Sistema%20PULSO','_blank')">Hablar ahora</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-dots"></div>
+  <div class="hero-inner">
+    <div class="hero-pill"><span class="hero-pill-dot"></span>Sistema PULSO · Hecho para negocios en RD</div>
+    <h1>Tu negocio visible,<br>automatizado y<br><em>vendiendo solo</em></h1>
+    <p class="hero-sub">Creamos tu presencia digital y automatizamos tus redes con notas de voz con IA. Tu negocio captura clientes las 24 horas sin que muevas un dedo.</p>
+    <div class="hero-btns">
+      <button class="btn-main" onclick="window.open('https://wa.me/18097611027?text=Hola%2C%20quiero%20ver%20una%20demo%20del%20Sistema%20PULSO','_blank')">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.99.574 3.843 1.568 5.408L2.046 22l4.71-1.498A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+        Ver demo gratis
+      </button>
+      <a class="btn-ghost" href="#planes">Ver planes →</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><div class="stat-n">24/7</div><div class="stat-l">Tu negocio capta leads</div></div>
+  <div class="stat"><div class="stat-n">48h</div><div class="stat-l">Sistema activo</div></div>
+  <div class="stat"><div class="stat-n">3 en 1</div><div class="stat-l">Web + Auto + Voz</div></div>
+  <div class="stat"><div class="stat-n">$0</div><div class="stat-l">Clientes perdidos de noche</div></div>
+</div>
+
+<!-- SISTEMA -->
+<section class="sec reveal" id="sistema">
+  <div class="sec-inner">
+    <div class="sec-tag">Sistema PULSO</div>
+    <div class="sec-h">Tres pilares.<br>Un sistema que trabaja solo.</div>
+    <div class="sec-sub">No vendemos herramientas sueltas. Entregamos un ecosistema digital completo que funciona junto para que tu negocio crezca sin depender de ti.</div>
+    <div class="sistema-grid">
+      <div class="s-card">
+        <div class="s-icon">🌐</div>
+        <div class="s-title">Presencia Digital Profesional</div>
+        <div class="s-desc">Tu página web diseñada para convertir visitas en clientes. Rápida, visible en Google y con tu catálogo de productos o servicios siempre actualizado.</div>
+        <div class="s-tags">
+          <span class="s-tag">Página web completa</span>
+          <span class="s-tag">Catálogo digital</span>
+          <span class="s-tag">Visible en Google</span>
+          <span class="s-tag">Botón WhatsApp</span>
+        </div>
+      </div>
+      <div class="s-card">
+        <div class="s-icon">🤖</div>
+        <div class="s-title">Automatización de Redes</div>
+        <div class="s-desc">Tu Instagram responde solo a cada comentario, mensaje directo e interacción. Captura leads automáticamente mientras tú duermes o atiendes otros clientes.</div>
+        <div class="s-tags">
+          <span class="s-tag">DMs automáticos</span>
+          <span class="s-tag">Respuesta a comentarios</span>
+          <span class="s-tag">Captura de leads 24h</span>
+          <span class="s-tag">Sin intervención</span>
+        </div>
+      </div>
+      <div class="s-card">
+        <div class="s-icon">🎙️</div>
+        <div class="s-title">Notas de Voz con IA</div>
+        <div class="s-desc">En lugar de un texto frío, tu cliente recibe una nota de voz que suena humana y personal. La tasa de apertura es incomparable con cualquier mensaje de texto.</div>
+        <div class="s-tags">
+          <span class="s-tag">Voz con IA natural</span>
+          <span class="s-tag">Incluye link de tu web</span>
+          <span class="s-tag">Genera confianza</span>
+          <span class="s-tag">Viral y diferente</span>
+        </div>
+      </div>
+      <div class="s-card wide">
+        <div class="voz-banner">
+          <div class="voz-icon">🎙️</div>
+          <div>
+            <div class="voz-title">El diferenciador que nadie más ofrece en RD</div>
+            <div class="voz-desc">Alguien comenta en tu publicación a las 10 de la noche. En segundos le llega una nota de voz al DM que suena exactamente como alguien de tu negocio, le dice su nombre, le habla de tus servicios y le manda el link de tu página. Esa persona lo escucha porque nunca lo espera. Y cuando lo escucha, ya es tu cliente potencial.</div>
+            <span class="voz-badge">Incluido en PULSO Pro y PULSO Elite</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLANES -->
+<section class="sec planes-bg reveal" id="planes">
+  <div class="sec-inner">
+    <div class="sec-tag">Planes</div>
+    <div class="sec-h">Elige cómo quieres crecer</div>
+    <div class="sec-sub">Sin contratos largos. Cancela cuando quieras. Empieza con lo que necesitas hoy.</div>
+    <div class="planes-grid">
+
+      <div class="plan">
+        <div class="plan-name">PULSO Básico</div>
+        <div class="plan-price">$97 <sub>único</sub></div>
+        <div class="plan-period">Pago único · Sin mensualidad</div>
+        <div class="plan-setup">La base digital que todo negocio necesita</div>
+        <div class="plan-divider"></div>
+        <ul class="plan-features">
+          <li>Página web profesional completa</li>
+          <li>Catálogo de productos o servicios</li>
+          <li>Botón de WhatsApp integrado</li>
+          <li>Formulario de contacto activo</li>
+          <li>Optimización básica para Google</li>
+          <li>Entrega en 5 días hábiles</li>
+          <li>1 revisión incluida</li>
+        </ul>
+        <button class="plan-btn" onclick="window.open('https://wa.me/18097611027?text=Hola%2C%20me%20interesa%20el%20PULSO%20B%C3%A1sico%20por%20%2497','_blank')">Contratar por WhatsApp</button>
+      </div>
+
+      <div class="plan featured">
+        <div class="plan-ribbon">⭐ Más contratado</div>
+        <div class="plan-name">PULSO Pro</div>
+        <div class="plan-price">$49 <sub>/mes</sub></div>
+        <div class="plan-period">+ $97 configuración inicial</div>
+        <div class="plan-setup">Página + Automatización + Nota de voz con IA</div>
+        <div class="plan-divider"></div>
+        <ul class="plan-features">
+          <li>Todo el PULSO Básico incluido</li>
+          <li>Automatización de DMs en Instagram</li>
+          <li>Respuesta automática a comentarios</li>
+          <li>Nota de voz con IA personalizada</li>
+          <li>Captura de leads las 24 horas</li>
+          <li>Reporte mensual de resultados</li>
+          <li>Optimización mensual del sistema</li>
+          <li>Soporte por WhatsApp</li>
+        </ul>
+        <div class="paypal-wrap">
+          <div id="pp-pro"></div>
+        </div>
+      </div>
+
+      <div class="plan">
+        <div class="plan-name">PULSO Elite</div>
+        <div class="plan-price">$149 <sub>/mes</sub></div>
+        <div class="plan-period">Todo incluido · Sin pago inicial</div>
+        <div class="plan-setup">El sistema completo para dominar tu mercado</div>
+        <div class="plan-divider"></div>
+        <ul class="plan-features">
+          <li>Todo el PULSO Pro incluido</li>
+          <li>Contenido mensual para redes</li>
+          <li>Gestión de reseñas de Google</li>
+          <li>Campaña mensual de WhatsApp</li>
+          <li>Actualización del catálogo web</li>
+          <li>Notas de voz actualizadas mensualmente</li>
+          <li>Soporte prioritario 7 días</li>
+          <li>Reunión mensual de resultados</li>
+        </ul>
+        <div class="paypal-wrap">
+          <div id="pp-elite"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section class="sec reveal" id="proceso">
+  <div class="sec-inner" style="max-width:860px">
+    <div class="sec-tag">Proceso</div>
+    <div class="sec-h">Tu sistema activo<br>en 48 horas</div>
+    <div class="sec-sub">Sin reuniones interminables. Sin tecnicismos. Sin complicaciones.</div>
+    <div class="proc-list">
+      <div class="proc">
+        <div class="proc-num">1</div>
+        <div><div class="proc-t">Nos escribes por WhatsApp</div><div class="proc-d">Cuéntanos sobre tu negocio. Te mostramos una demo gratis de cómo quedaría tu Sistema PULSO completo. Sin compromiso ni costo.</div></div>
+      </div>
+      <div class="proc">
+        <div class="proc-num">2</div>
+        <div><div class="proc-t">Eliges tu plan y activamos</div><div class="proc-d">Seleccionas el plan que más te conviene. Realizas el pago y comenzamos de inmediato con la configuración de tu sistema.</div></div>
+      </div>
+      <div class="proc">
+        <div class="proc-num">3</div>
+        <div><div class="proc-t">Construimos tu sistema en 48 horas</div><div class="proc-d">Creamos tu página web, configuramos la automatización y grabamos tu nota de voz con IA. Todo probado y funcionando antes de entregarlo.</div></div>
+      </div>
+      <div class="proc">
+        <div class="proc-num">4</div>
+        <div><div class="proc-t">Tu negocio trabaja solo desde ese momento</div><div class="proc-d">Cada persona que interactúa con tu Instagram recibe una nota de voz personalizada con el link de tu página. Tú solo cierras las ventas que llegan solas.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTORES -->
+<section class="sec sec-dark reveal" id="sectores">
+  <div class="sec-inner" style="text-align:center">
+    <div class="sec-tag">Sectores</div>
+    <div class="sec-h">Para cualquier negocio en RD<br>que quiera crecer</div>
+    <div class="sectores-wrap">
+      <div class="sector">🚗 Dealers de carros</div>
+      <div class="sector">🦷 Consultorios dentales</div>
+      <div class="sector">✨ Clínicas estéticas</div>
+      <div class="sector">🏥 Centros médicos</div>
+      <div class="sector">💇 Salones de belleza</div>
+      <div class="sector">❄️ Técnicos de aires</div>
+      <div class="sector">🔧 Talleres mecánicos</div>
+      <div class="sector">🏠 Inmobiliarias</div>
+      <div class="sector">🍽️ Restaurantes</div>
+      <div class="sector">💊 Farmacias</div>
+      <div class="sector">🐾 Veterinarias</div>
+      <div class="sector">👗 Tiendas de ropa</div>
+      <div class="sector">🏋️ Gimnasios</div>
+      <div class="sector">📸 Fotógrafos</div>
+      <div class="sector">⚖️ Bufetes legales</div>
+      <div class="sector">🎓 Academias</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta reveal">
+  <div class="cta-glow"></div>
+  <div class="cta-inner">
+    <div class="cta-h">Tu negocio merece<br><em>no perder más clientes</em></div>
+    <p class="cta-p">Cada día sin el Sistema PULSO es un cliente que llegó a tu Instagram de noche, no recibió respuesta y compró en la competencia esta mañana.</p>
+    <button class="btn-main" onclick="window.open('https://wa.me/18097611027?text=Hola%20Pulso%20Digital%2C%20quiero%20activar%20el%20Sistema%20PULSO%20para%20mi%20negocio','_blank')">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.99.574 3.843 1.568 5.408L2.046 22l4.71-1.498A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+      Activar mi Sistema PULSO
+    </button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">© 2026 <strong>Pulso Digital RD</strong> · República Dominicana</div>
+  <div class="footer-links">
+    <a href="mailto:digitalpulsoai@gmail.com">digitalpulsoai@gmail.com</a>
+    <a href="https://wa.me/18097611027" target="_blank">WhatsApp</a>
+  </div>
+</footer>
+
+<script>
+// Reveal on scroll
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')});
+},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// PayPal
+function initPP(){
+  if(typeof paypal==='undefined'){setTimeout(initPP,300);return}
+  const cfg=s=>({
+    style:{shape:'pill',color:'blue',layout:'vertical',label:'subscribe'},
+    createSubscription:(d,a)=>a.subscription.create({plan_id:s}),
+    onApprove:d=>{window.open('https://wa.me/18097611027?text=Hola%2C%20me%20susc%20ID%3A'+d.subscriptionID,'_blank')}
+  });
+  paypal.Buttons(cfg('P-8DX51972US439411ANI4GWAA')).render('#pp-pro');
+  paypal.Buttons(cfg('P-4TF590810D7587323NI4G3FI')).render('#pp-elite');
+}
+</script>
+<script src="https://www.paypal.com/sdk/js?client-id=BAAAbZSKmibhKULqFnbrfcobeMtva3SNEmD7HnHLVoc6sioKyyHUHEvT1c3W2a165OsMVTgbr-BVSXnS5s&vault=true&intent=subscription" data-sdk-integration-source="button-factory" onload="initPP()"></script>
 </body>
 </html>
 
